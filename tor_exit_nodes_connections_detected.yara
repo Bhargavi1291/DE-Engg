@@ -25,6 +25,7 @@ rule tor_exit_nodes_connections_detected
   events:
     $e.metadata.event_type = "NETWORK_CONNECTION"
     $e1.graph.metadata.entity_type = "IP_ADDRESS"
+    $e1.graph.metadata.threat.threat_feed_name != ""
     $e1.graph.metadata.threat.threat_feed_name != "Tor Exit Nodes"
    
 match:
