@@ -30,20 +30,21 @@ def check_udm_conditions(file_path):
     return issues
 
 def main():
-    base_dir = os.getenv('GITHUB_WORKSPACE', '.')
-    yara_files = os.path.join(base_dir, 'rules')
+    base_dir = os.getenv('GITHUB_WORKSPACE', '.')  # Get the base directory from the environment or use the current directory
+    rules_folder = os.path.join(base_dir, 'rules')  # Set the path to the 'rules' folder
+    yara_files = find_yara_files(rules_folder)  # Find all .yara and .yar files in the 'rules' folder
     all_issues = []
 
     for yara_file in yara_files:
-        issues = check_udm_conditions(yara_file)
+        issues = check_udm_conditions(yara_file)  # Check UDM conditions in each YARA file
         all_issues.extend(issues)
 
     if all_issues:
         for issue in all_issues:
             print(issue)
-        sys.exit(1)
+        sys.exit(1)  # Exit with status 1 if there are issues
     else:
-        print("All UDM field checks passed.")
+        print("All UDM field checks passed.")  # Print success message if no issues
 
 if __name__ == "__main__":
     main()
