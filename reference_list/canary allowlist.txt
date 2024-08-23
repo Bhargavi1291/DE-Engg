@@ -1,4 +1,4 @@
-reference list: canary allowlist
+reference list: "Some Name"
 type: string
-
-Paste Bin Leak
+values:
+  - paste bin lek
