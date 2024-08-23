@@ -1,6 +1,7 @@
-reference list: bruteforce_whitelisted_source_IPs 
-type: string
-
+type: "string"
+title: "bruteforce_whitelisted_source_IPs "
+description: "description"
+row:
 //Track your IPs here
 // Enter values for the list, one value on each line.
 // To add a comment, use a double slash followed by the comment.
