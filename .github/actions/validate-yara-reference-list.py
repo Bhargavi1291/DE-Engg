@@ -8,13 +8,13 @@ def read_reference_lists(reference_list_folder):
     for root, _, files in os.walk(reference_list_folder):
         for file in files:
             if file.endswith('.txt'):
+                reference_name = os.path.splitext(file)[0]  # Strip the extension to get the reference list name
                 file_path = os.path.join(root, file)
                 with open(file_path, 'r') as f:
                     content = f.read()
                     title_match = re.search(r'title:\s*"(.*?)"', content, re.IGNORECASE)
                     type_match = re.search(r'type:\s*"(.*?)"', content, re.IGNORECASE)
                     if title_match and type_match:
-                        reference_name = os.path.splitext(file)[0]
                         reference_lists[reference_name] = {
                             'title': title_match.group(1),
                             'type': type_match.group(1).lower()
