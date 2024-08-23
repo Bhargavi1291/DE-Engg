@@ -1,0 +1,8 @@
+reference list: bruteforce_whitelisted_source_IPs 
+type: string
+
+//Track your IPs here
+// Enter values for the list, one value on each line.
+// To add a comment, use a double slash followed by the comment.
+// Any text after the double slash and any spaces before it are ignored.
+// (This line is an example of a comment.)
