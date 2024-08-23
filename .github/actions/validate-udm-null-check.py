@@ -31,7 +31,7 @@ def check_udm_conditions(file_path):
 
 def main():
     base_dir = os.getenv('GITHUB_WORKSPACE', '.')
-    yara_files = find_yara_files(base_dir, 'rules')
+    yara_files = os.path.join(base_dir, 'rules')
     all_issues = []
 
     for yara_file in yara_files:
