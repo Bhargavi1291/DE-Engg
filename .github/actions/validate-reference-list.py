@@ -9,21 +9,25 @@ def validate_reference_list(file_path):
 
     issues = []
 
-    # Check for 'reference list' and 'type' fields
-    reference_list_match = re.search(r'reference list:\s*".+?"', content, re.IGNORECASE)
-    type_match = re.search(r'type:\s*(string|cidr|regex)', content, re.IGNORECASE)
-
-    # Check for values following the 'type' field
-    value_match = re.search(r'type:\s*(string|cidr|regex)\s*\n\s*(values:\s*\[.*?\])', content, re.IGNORECASE | re.DOTALL)
-
-    if not reference_list_match:
-        issues.append(f"Missing 'reference list' in {file_path}")
-    
+    # Check for 'type' field with valid values
+    type_match = re.search(r'type:\s*"(string|cidr|regex)"', content, re.IGNORECASE)
     if not type_match:
         issues.append(f"Missing or invalid 'type' in {file_path}. Must be 'string', 'cidr', or 'regex'.")
-    
-    if type_match and not value_match:
-        issues.append(f"'type' in {file_path} must be followed by a non-empty 'values' list.")
+
+    # Check for 'Title' field
+    title_match = re.search(r'title:\s*".+?"', content, re.IGNORECASE)
+    if not title_match:
+        issues.append(f"Missing 'Title' in {file_path}")
+
+    # Check for 'Description' field
+    description_match = re.search(r'description:\s*".+?"', content, re.IGNORECASE)
+    if not description_match:
+        issues.append(f"Missing 'Description' in {file_path}")
+
+    # Check for 'row' field with non-empty values, either on the same line or subsequent lines
+    row_match = re.search(r'row:\s*([^\s].*|(\n\s+[^\s].*))', content, re.IGNORECASE | re.MULTILINE)
+    if not row_match:
+        issues.append(f"Missing or empty 'row' in {file_path}")
 
     return issues
 
