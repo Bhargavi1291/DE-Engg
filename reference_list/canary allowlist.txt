@@ -1,0 +1,5 @@
+type: "string"
+title: "canary allowlist "
+description: "description"
+row:
+paste bin leak
