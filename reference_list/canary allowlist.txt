@@ -1,0 +1,4 @@
+reference list: canary allowlist
+type: string
+
+Paste Bin Leak
