@@ -1,4 +1,5 @@
-reference list: "Some Name"
-type: string
-values:
-  - paste bin lek
+type: "string"
+title: "canary allowlist "
+description: "description"
+row:
+paste bin leak
