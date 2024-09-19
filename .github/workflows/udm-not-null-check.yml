@@ -5,8 +5,10 @@ on:
     branches: [ "main" ]
   push:
     branches:
-      - main  # This triggers the workflow on every push to the main branch
-
+      - main  # Trigger on pushes to the main branch
+    paths:
+      - 'rules/**'  # Only trigger if files in the "rules/" directory are changed
+      
 permissions:
   contents: read
 
