@@ -1,0 +1,7 @@
+type: "string"
+title: "ipfs_domains"
+description: "IPFS Domains"
+row:
+ipfs.io
+gateway.pinata.cloud
+gateway.ipfs.io
