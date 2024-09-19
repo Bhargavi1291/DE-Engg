@@ -27,7 +27,6 @@ rule threat_feed_IP_match_detected_outbound
         $e1.target.ip != ""
         $e1.target.ip_geo_artifact.location.country_or_region != ""
         $e1.target.ip = $target_ip //Capturing destination IP from event to correlate with Threat Intelligence feeds
-      //  not $e1.target.ip in CIDR %whitelisted_threat_IP_feeds //to whitelist any threat feeds which are misclassfied as threat
         //$e1.security_result.action = "ALLOW" //Looking for events which are allowed at security device
        
         $e2.graph.metadata.vendor_name = "RECORDED_FUTURE_IOC" nocase $e2.graph.metadata.vendor_name = "" nocase
