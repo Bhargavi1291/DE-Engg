@@ -1,8 +1,11 @@
-name: udm not null check 
+name: udm not null check
 
 on:
   pull_request:
     branches: [ "main" ]
+  push:
+    branches:
+      - main  # This triggers the workflow on every push to the main branch
 
 permissions:
   contents: read
@@ -34,4 +37,3 @@ jobs:
 
     - name: Run UDM field check
       run: python .github/actions/validate-udm-null-check.py
-
