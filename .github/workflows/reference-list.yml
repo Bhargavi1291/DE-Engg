@@ -3,6 +3,13 @@ name: Reference list validation
 on:
   pull_request:
     branches: [ "main" ]
+  push:
+    branches:
+      - main  # Trigger on pushes to the main branch
+    paths:
+      - 'rules/**'          # Trigger if files in the "rules/" directory are changed
+      - 'reference_list/**' # Trigger if files in the "reference_list/" directory are changed
+
 
 permissions:
   contents: read
