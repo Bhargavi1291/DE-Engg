@@ -1,7 +1,16 @@
 name: yara reference list check
+
 on:
   pull_request:
     branches: [ "main" ]
+  push:
+    branches:
+      - '**'  # Trigger on pushes to the main branch
+    paths:
+      - 'rules/**'          # Trigger if files in the "rules/" directory are changed
+      - 'reference_list/**' # Trigger if files in the "reference_list/" directory are changed
+
+
 
 permissions:
   contents: read
