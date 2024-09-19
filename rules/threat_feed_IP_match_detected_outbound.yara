@@ -31,7 +31,6 @@ rule threat_feed_IP_match_detected_outbound
        
         $e2.graph.metadata.vendor_name = "RECORDED_FUTURE_IOC" nocase $e2.graph.metadata.vendor_name = "" nocase
         $e2.graph.metadata.entity_type = "IP_ADDRESS"
-       // $e2.graph.metadata.threat.threat_feed_name in %threat_feed_names
         $e2.graph.entity.ip = $target_ip
         $e2.graph.metadata.threat.category_details != ""
  
